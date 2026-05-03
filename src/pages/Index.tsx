@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MainMenu from "@/components/MainMenu";
 import SavesModal from "@/components/SavesModal";
-import GameScreen from "@/components/GameScreen";
+import FPSGame from "@/components/FPSGame";
 
 export type GameView = "menu" | "game" | "saves";
 
@@ -56,7 +56,7 @@ export default function Index() {
         <MainMenu onNewGame={() => setView("game")} onLoad={openLoad} onQuit={() => {}} />
       )}
       {view === "game" && (
-        <GameScreen onMenu={() => setView("menu")} onSave={openSave} />
+        <FPSGame onMenu={() => setView("menu")} onSave={openSave} />
       )}
       {view === "saves" && (
         <SavesModal
