@@ -2,8 +2,9 @@ import { useState } from "react";
 import MainMenu from "@/components/MainMenu";
 import SavesModal from "@/components/SavesModal";
 import FPSGame from "@/components/FPSGame";
+import GTAGame from "@/components/GTAGame";
 
-export type GameView = "menu" | "game" | "saves";
+export type GameView = "menu" | "fps" | "gta" | "saves";
 
 export interface SaveSlot {
   id: number;
@@ -25,12 +26,13 @@ export default function Index() {
   const [view, setView] = useState<GameView>("menu");
   const [saves, setSaves] = useState<SaveSlot[]>(INITIAL_SAVES);
   const [savesMode, setSavesMode] = useState<"load" | "save">("load");
+  const [activeGame, setActiveGame] = useState<"fps" | "gta">("fps");
 
   const openLoad = () => { setSavesMode("load"); setView("saves"); };
   const openSave = () => { setSavesMode("save"); setView("saves"); };
 
   const handleLoadSave = (slot: SaveSlot) => {
-    if (!slot.empty) setView("game");
+    if (!slot.empty) setView(activeGame);
   };
 
   const handleSave = (slotId: number) => {
@@ -39,7 +41,7 @@ export default function Index() {
         ? { ...s, empty: false, chapter: "Глава II: Подвал", date: "03.05.2026 — 15:00", playtime: "2ч 00м" }
         : s
     ));
-    setView("game");
+    setView(activeGame);
   };
 
   const handleDelete = (slotId: number) => {
@@ -50,19 +52,25 @@ export default function Index() {
     ));
   };
 
+  const startFPS = () => { setActiveGame("fps"); setView("fps"); };
+  const startGTA = () => { setActiveGame("gta"); setView("gta"); };
+
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black">
       {view === "menu" && (
-        <MainMenu onNewGame={() => setView("game")} onLoad={openLoad} onQuit={() => {}} />
+        <MainMenu onNewGame={startFPS} onGTA={startGTA} onLoad={openLoad} onQuit={() => {}} />
       )}
-      {view === "game" && (
+      {view === "fps" && (
         <FPSGame onMenu={() => setView("menu")} onSave={openSave} />
+      )}
+      {view === "gta" && (
+        <GTAGame onMenu={() => setView("menu")} />
       )}
       {view === "saves" && (
         <SavesModal
           mode={savesMode}
           saves={saves}
-          onClose={() => setView(savesMode === "load" ? "menu" : "game")}
+          onClose={() => setView(savesMode === "load" ? "menu" : activeGame)}
           onLoad={handleLoadSave}
           onSave={handleSave}
           onDelete={handleDelete}

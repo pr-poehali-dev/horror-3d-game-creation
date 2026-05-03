@@ -3,11 +3,12 @@ import Icon from "@/components/ui/icon";
 
 interface Props {
   onNewGame: () => void;
+  onGTA: () => void;
   onLoad: () => void;
   onQuit: () => void;
 }
 
-export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
+export default function MainMenu({ onNewGame, onGTA, onLoad, onQuit }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const [visible, setVisible] = useState(false);
@@ -117,7 +118,8 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
   }, []);
 
   const menuItems = [
-    { id: "new", label: "Новая игра", icon: "Play", action: onNewGame },
+    { id: "new", label: "Dark Abyss (FPS)", icon: "Play", action: onNewGame },
+    { id: "gta", label: "City Crime (GTA)", icon: "Car", action: onGTA },
     { id: "load", label: "Загрузить", icon: "FolderOpen", action: onLoad },
     { id: "settings", label: "Настройки", icon: "Settings", action: () => {} },
     { id: "quit", label: "Выйти", icon: "LogOut", action: onQuit },
