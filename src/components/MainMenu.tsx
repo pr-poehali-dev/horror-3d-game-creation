@@ -129,12 +129,12 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(https://cdn.poehali.dev/projects/5e12e9c8-8c76-4621-b2f4-e57c0ab3b570/files/4cf1fae0-5782-40da-a225-804b12fe7cc8.jpg)`,
-          filter: "brightness(0.35) saturate(0.6)",
+          filter: "brightness(0.65) saturate(0.75)",
         }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/90" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
 
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" style={{ mixBlendMode: "screen" }} />
 
@@ -160,7 +160,7 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
         <div className="mb-16 text-center" style={{ animationDelay: "0.2s" }}>
           <div
             className="text-xs tracking-[0.5em] uppercase mb-4"
-            style={{ color: "rgba(180,60,60,0.8)", fontFamily: "'Oswald', sans-serif", fontWeight: 200 }}
+            style={{ color: "rgba(220,100,100,1)", fontFamily: "'Oswald', sans-serif", fontWeight: 300 }}
           >
             ◆ &nbsp; 2026 &nbsp; ◆
           </div>
@@ -171,8 +171,8 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: "clamp(4rem, 10vw, 9rem)",
               fontWeight: 300,
-              color: "#e8d5c0",
-              textShadow: "0 0 60px rgba(180,60,60,0.4), 0 0 120px rgba(100,10,10,0.3)",
+              color: "#f5ede0",
+              textShadow: "0 0 40px rgba(220,80,80,0.6), 0 2px 20px rgba(0,0,0,0.8)",
               letterSpacing: "0.15em",
             }}
           >
@@ -185,8 +185,8 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
               fontSize: "clamp(4rem, 10vw, 9rem)",
               fontWeight: 600,
               fontStyle: "italic",
-              color: "#c0392b",
-              textShadow: "0 0 40px rgba(180,20,20,0.8), 0 0 80px rgba(180,20,20,0.4)",
+              color: "#e84040",
+              textShadow: "0 0 30px rgba(220,50,50,0.9), 0 2px 20px rgba(0,0,0,0.8)",
               letterSpacing: "0.15em",
             }}
           >
@@ -197,7 +197,7 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
             <div style={{ width: "60px", height: "1px", background: "linear-gradient(to right, transparent, rgba(180,60,60,0.6))" }} />
             <div
               className="text-xs tracking-[0.4em] uppercase"
-              style={{ color: "rgba(200,160,120,0.5)", fontFamily: "'Oswald', sans-serif", fontWeight: 200 }}
+              style={{ color: "rgba(230,200,160,0.9)", fontFamily: "'Oswald', sans-serif", fontWeight: 300 }}
             >
               Выживи в темноте
             </div>
@@ -244,7 +244,7 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
                 size={14}
                 className="transition-all duration-300"
                 style={{
-                  color: hovered === item.id ? "#c0392b" : "rgba(200,160,120,0.4)",
+                  color: hovered === item.id ? "#e84040" : "rgba(220,180,140,0.8)",
                   filter: hovered === item.id ? "drop-shadow(0 0 6px rgba(180,30,30,0.8))" : "none",
                 }}
               />
@@ -257,7 +257,7 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
                   fontSize: "0.85rem",
                   letterSpacing: "0.35em",
                   textTransform: "uppercase",
-                  color: hovered === item.id ? "#e8d5c0" : "rgba(200,160,120,0.65)",
+                  color: hovered === item.id ? "#ffffff" : "rgba(230,200,160,0.95)",
                   textShadow: hovered === item.id ? "0 0 20px rgba(180,30,30,0.6)" : "none",
                 }}
               >
@@ -269,7 +269,7 @@ export default function MainMenu({ onNewGame, onLoad, onQuit }: Props) {
 
         <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
-          style={{ color: "rgba(150,100,80,0.35)", fontFamily: "'Oswald', sans-serif", fontWeight: 200, fontSize: "0.65rem", letterSpacing: "0.3em" }}
+          style={{ color: "rgba(200,160,120,0.7)", fontFamily: "'Oswald', sans-serif", fontWeight: 200, fontSize: "0.65rem", letterSpacing: "0.3em" }}
         >
           ВЕРСИЯ 0.1.0 &nbsp;|&nbsp; ОНЛАЙН-РЕЖИМ
         </div>
